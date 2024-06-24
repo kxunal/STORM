@@ -21,4 +21,8 @@
 #SOFTWARE.
 
 #!/bin/bash
-python3 server.py & python -m main.py
+
+set -e
+export FLASK_APP=server:create_app
+gunicorn -w 4 -b 0.0.0.0:${PORT:-8080} server:create_app &
+python -m main.py
