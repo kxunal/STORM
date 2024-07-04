@@ -21,34 +21,32 @@
 #SOFTWARE.
 
 from telethon import __version__, events, Button
-from config import X1, X2, X3, X4, X5, X6, X7, X8, X9, X10
+from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10
 
 START_OP = [
     [
         Button.url("ꜱᴇɴꜱᴇɪ 🥀", "https://t.me/Kexx_XD"),
-        Button.url("ꜱᴜᴘᴘᴏʀᴛ ✨", "https://t.me/STORM_CHATZ"),
-    ],
-    [
-        Button.url(
-            "ɢʀᴏᴜᴘ 🧸", "https://t.me/FriendCastel"
-        ),
+        Button.url("ꜱᴜᴘᴘᴏʀᴛ 🧸", "https://t.me/TORNADO_TRIBE"),
     ],
     [
         Button.url("ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ❄️", "https://github.com/VARC9210/STORM"),
+    ],
+    [
+        Button.url("ꜱᴜᴘᴘᴏʀᴛ ✨", "https://t.me/STORM_CHATZ"),
         Button.url("ᴄʜᴀɴɴᴇʟ ☁️", "https://t.me/STORM_TECHH"),
     ],
 ]
 
-@X1.on(events.NewMessage(pattern="/start"))
-@X2.on(events.NewMessage(pattern="/start"))
-@X3.on(events.NewMessage(pattern="/start"))
-@X4.on(events.NewMessage(pattern="/start"))
-@X5.on(events.NewMessage(pattern="/start"))
-@X6.on(events.NewMessage(pattern="/start"))
-@X7.on(events.NewMessage(pattern="/start"))
-@X8.on(events.NewMessage(pattern="/start"))
-@X9.on(events.NewMessage(pattern="/start"))
-@X10.on(events.NewMessage(pattern="/start"))
+@KEX1.on(events.NewMessage(pattern="/start"))
+@KEX2.on(events.NewMessage(pattern="/start"))
+@KEX3.on(events.NewMessage(pattern="/start"))
+@KEX4.on(events.NewMessage(pattern="/start"))
+@KEX5.on(events.NewMessage(pattern="/start"))
+@KEX6.on(events.NewMessage(pattern="/start"))
+@KEX7.on(events.NewMessage(pattern="/start"))
+@KEX8.on(events.NewMessage(pattern="/start"))
+@KEX9.on(events.NewMessage(pattern="/start"))
+@KEX10.on(events.NewMessage(pattern="/start"))
 async def start(event):
     if event.is_private:
         KEX = await event.client.get_me()
@@ -56,7 +54,7 @@ async def start(event):
         bot_id = KEX.id
         TEXT = f"**ʜᴇʏ [{event.sender.first_name}]\n\nɪ ᴀᴍ [{bot_name}](tg://user?id={bot_id})​**\n➖➖➖➖➖➖➖➖➖➖➖\n"
         TEXT += f"» **ꜱᴇɴꜱᴇɪ : [⏤͟͞〲ᴋᴇx](https://t.me/kexx_xd)**\n"
-        TEXT += f"» **ꜱᴛᴏʀᴍ :** `M3.0` \n"
+        TEXT += f"» **ꜱᴛᴏʀᴍ :** `M3.1.x` \n"
         TEXT += f"» **ᴘʏᴛʜᴏɴ :** `3.11` \n"
         TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ :** `{__version__}`\n➖➖➖➖➖➖➖➖➖➖➖"        
         await event.client.send_file(
