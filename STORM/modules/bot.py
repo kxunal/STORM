@@ -295,4 +295,3 @@ async def restart(e):
             pass
 
         execl(sys.executable, sys.executable, *sys.argv)
-
