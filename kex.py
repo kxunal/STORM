@@ -35,7 +35,7 @@ def create_app():
     class Greeting(Resource):
         def get(self):
             logger.info("ɢʀᴇᴇᴛɪɴɢ ᴇɴᴅᴘᴏɪɴᴛ ᴡᴀꜱ ʀᴇᴀᴄʜᴇᴅ")
-            return "ꜱᴛᴏʀᴍ ɪꜱ ᴜᴘ ᴀɴᴅ ʀᴇᴀᴅʏ ꜰᴏʀ ᴅᴇꜱᴛʀᴜᴄᴛɪᴏɴ!"
+            return "ꜱᴛᴏʀᴍ ɪꜱ ᴜᴘ ᴀɴᴅ ʀᴇᴀᴅʏ ꜰᴏʀ ᴅᴇꜱᴛʀᴜᴄᴛɪᴏɴ"
 
     api.add_resource(Greeting, '/')
     
