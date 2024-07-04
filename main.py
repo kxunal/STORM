@@ -29,7 +29,7 @@ import urllib3
 
 
 from pathlib import Path
-from config import X1, X2, X3, X4, X5, X6, X7, X8, X9, X10
+from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10
 
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.WARNING)
@@ -58,16 +58,16 @@ print("\nꜱᴛᴏʀᴍ ʙᴏᴛ ɪꜱ ᴅᴇᴘʟᴏʏᴇᴅ ꜱᴜᴄᴄᴇꜱ
 
 
 async def main():
-    await X1.run_until_disconnected()
-    await X2.run_until_disconnected()
-    await X3.run_until_disconnected()
-    await X4.run_until_disconnected()
-    await X5.run_until_disconnected()
-    await X6.run_until_disconnected()
-    await X7.run_until_disconnected()
-    await X8.run_until_disconnected()
-    await X9.run_until_disconnected()
-    await X10.run_until_disconnected()
+    await KEX1.run_until_disconnected()
+    await KEX2.run_until_disconnected()
+    await KEX3.run_until_disconnected()
+    await KEX4.run_until_disconnected()
+    await KEX5.run_until_disconnected()
+    await KEX6.run_until_disconnected()
+    await KEX7.run_until_disconnected()
+    await KEX8.run_until_disconnected()
+    await KEX9.run_until_disconnected()
+    await KEX10.run_until_disconnected()
 
 
 loop = asyncio.get_event_loop()
