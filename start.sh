@@ -23,6 +23,6 @@
 #!/bin/bash
 
 set -e
-export FLASK_APP=server:create_app
-gunicorn -w 4 -b 0.0.0.0:${PORT:-8080} server:create_app &
+export FLASK_APP=kex:create_app
+gunicorn -w 4 -b 0.0.0.0:${PORT:-8080} kex:create_app &
 python -m main.py
