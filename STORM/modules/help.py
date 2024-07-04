@@ -49,7 +49,6 @@ HELP_BUTTON = [
     ]
   ]
 
-
 @KEX1.on(events.NewMessage(incoming=True, pattern=r"\%shelp(?: |$)(.*)" % hl))
 async def help(event):
     if event.sender_id in SUDO_USERS:
