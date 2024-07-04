@@ -5,7 +5,7 @@
 <h2 align="center"> 𝐀 𝐏𝐎𝐖𝐄𝐑𝐅𝐔𝐋 𝐒𝐏𝐀𝐌 𝐁𝐎𝐓<h2>
 
 <p align="center">
-  <img src="./Storm.jpeg" alt="Logo">
+  <img src="https://graph.org/file/c3b279aee41f8bbe6466b.jpg" alt="Logo">
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 ## ʜᴇʀᴏᴋᴜ ᴅᴇᴘʟᴏʏᴍᴇɴᴛ
 
-<a href="https://heroku.com/deploy?template=https://github.com/VARC9210/STORM"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-purple?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a>
+<a href="https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2FVARC9210%2FSTORM"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-purple?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a>
 
 ## ᴛᴇʟᴇɢʀᴀᴍ
 
