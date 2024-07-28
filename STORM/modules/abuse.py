@@ -1,73 +1,42 @@
-#MIT License
-
-#Copyright (c) 2024 ᴋᴜɴᴀʟ [AFK]
-
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
-
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
-
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
-
-
 import asyncio
 from random import choice
 from telethon import events
-from telethon import events, functions, types
-from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10, SUDO_USERS, OWNER_ID, CMD_HNDLR as hl
+from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10, SUDO_USERS, CMD_HNDLR as hl
 from STORM.database import ABUSE
-from STORM.database import RAID, REPLYRAID, DEV, HRAID, BDAY
-from STORM.database import GROUP, PORMS
 
+KEX_INSTANCES = [KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10]
 
-@KEX1.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX2.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX3.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX4.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX5.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX6.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX7.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX8.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX9.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-@KEX10.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
-async def abuse(e):
-     if e.sender_id in SUDO_USERS:
-        xraid = e.text.split(" ", 2)
+for KEX in KEX_INSTANCES:
+    @KEX.on(events.NewMessage(incoming=True, pattern=r"\%sabuse(?: |$)(.*)" % hl))
+    async def abuse(event):
+        if event.sender_id in SUDO_USERS:
+            try:
+                args = event.text.split(" ", 2)
+                if len(args) == 3:
+                    entity = await event.client.get_entity(args[2])
+                    uid = entity.id
+                elif event.reply_to_msg_id:             
+                    reply_msg = await event.get_reply_message()
+                    entity = await event.client.get_entity(reply_msg.sender_id)
+                    uid = entity.id
+                else:
+                    raise ValueError("ɪɴᴠᴀʟɪᴅ ɪɴᴘᴜᴛ. ᴘʟᴇᴀꜱᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ ɪɴᴘᴜᴛ")
 
-        if len(xraid) == 3:
-            entity = await e.client.get_entity(xraid[2])
-            uid = entity.id
-
-        elif e.reply_to_msg_id:             
-            a = await e.get_reply_message()
-            entity = await e.client.get_entity(a.sender_id)
-            uid = entity.id
-
-        try:
-            first_name = entity.first_name
-            counter = int(xraid[1])
-            username = f"[{first_name}](tg://user?id={uid})"
-            for _ in range(counter):
-                reply = choice(ABUSE)
-                caption = f"{username} {reply}"
-                await e.client.send_message(e.chat_id, caption)
-                await asyncio.sleep(0.1)
-        except (IndexError, ValueError, NameError):
-            await e.reply(f"{hl}ᴀʙᴜꜱᴇ <ᴄᴏᴜɴᴛ> <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ> <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
-        except Exception as e:
-            print(e)
-
+                first_name = entity.first_name
+                counter = int(args[1])
+                username = f"[{first_name}](tg://user?id={uid})"
+                
+                for _ in range(counter):
+                    reply = choice(ABUSE)
+                    caption = f"{username} {reply}"
+                    await event.client.send_message(event.chat_id, caption)
+                    await asyncio.sleep(0.1)
+            
+            except (IndexError, ValueError):
+                await event.reply(f"{hl}ᴀʙᴜꜱᴇ <ᴄᴏᴜɴᴛ> <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ> <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
+            except Exception as e:
+                await event.reply(f"ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ: {str(e)}")
+                print(e)
 
 REPLY_RAID = []
 
