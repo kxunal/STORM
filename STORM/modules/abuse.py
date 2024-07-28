@@ -1,8 +1,9 @@
 import asyncio
 from random import choice
 from telethon import events
-from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10, SUDO_USERS, CMD_HNDLR as hl
+from config import KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10, SUDO_USERS, OWNER_ID, CMD_HNDLR as hl
 from STORM.database import ABUSE
+from STORM.database import RAID, REPLYRAID, DEV, HRAID, BDAY
 
 KEX_INSTANCES = [KEX1, KEX2, KEX3, KEX4, KEX5, KEX6, KEX7, KEX8, KEX9, KEX10]
 
